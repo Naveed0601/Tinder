@@ -47,7 +47,7 @@ router.post("/login", async (req, res) => {
       throw new Error("Password is not valid");
     }
   } catch (error) {
-    res.status(401).send({ message: "Error" }, error.message);
+    res.status(401).send({ message: "Error" } + error.message);
   }
 });
 
