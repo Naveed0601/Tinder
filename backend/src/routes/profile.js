@@ -23,7 +23,7 @@ router.patch("/profile/edit", userAuth, async (req, res) => {
     console.log(loggedInUser);
     Object.keys(req.body).forEach((key) => (loggedInUser[key] = req.body[key]));
     console.log(loggedInUser);
-
+    await loggedInUser.save();
     res.status(200).send("Successfully Edit your profile");
   } catch (error) {
     res.status(400).send({ message: error.message });
